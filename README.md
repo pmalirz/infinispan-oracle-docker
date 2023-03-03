@@ -50,7 +50,7 @@ container name: leave empty or type `CDB$ROOT`
 
 ### How can I connect to the Oracle DB
 
-You can download the DBaver SQL IDE and use the following JDBC connection
+You can download the [DBaver SQL IDE](https://dbeaver.io/) (I prefer via `scoop`) and use the following JDBC connection:
 ```
 jdbc:oracle:thin:@//localhost:1521/xepdb1
 ```
