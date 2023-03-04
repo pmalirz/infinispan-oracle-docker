@@ -1,4 +1,4 @@
-<img height="300" src="https://raw.githubusercontent.com/pmalirz/infinispan-oracle-docker/main/docs/img/infinispan-oracle-docker.gif" title="Infinispan with Oracle on Docker Compose Logo" width="300"/>
+![](./docs/img/infinispan-oracle-docker.gif "Infinispan with Oracle on Docker Compose Logo")
 
 # Infinispan 14 and Oracle 21c on Docker Compose
 
