@@ -1,6 +1,8 @@
-# Docker Compose - Infinispan + Oracle
+<img height="300" src="https://raw.githubusercontent.com/pmalirz/infinispan-oracle-docker/main/docs/img/infinispan-oracle-docker.gif" title="Infinispan with Oracle on Docker Compose Logo" width="300"/>
 
-This is a sample setup with Infinispan 14 and Oracle 21c XE set up as Infinispan's JDBC storage
+# Infinispan 14 and Oracle 21c on Docker Compose
+
+This is a sample setup of Infinispan 14 connected to Oracle 21c XE. All mounted via Docker Compose.
 
 # Before you run it
 
@@ -10,10 +12,10 @@ Before you run the docker compose command please initialize the project:
 gradlew dockerInit
 ```
 
-It will download the Oracle JDBC jar for you (from the Maven Central) placing it to
-the `vshop-docker/infinispan/server/lib`. This folder is dedicated to the Infinispan 3rd party libraries. Read more
-about the Infinispan `server`
-folder https://infinispan.org/docs/stable/titles/server/server.html#server_root_directory
+The command will download the Oracle JDBC jar for you (from the Maven Central) placing it to
+the `vshop-docker/infinispan/server/lib` folder. This folder is dedicated to the Infinispan 3rd party libraries. Read
+more about the Infinispan `server` folder
+on https://infinispan.org/docs/stable/titles/server/server.html#server_root_directory
 
 ## Start the infrastructure
 
@@ -21,15 +23,16 @@ folder https://infinispan.org/docs/stable/titles/server/server.html#server_root_
 docker-compose up -d
 ```
 
-It will start Oracle 21c XE instance and Infinispan 14 (connected to the Oracle DB).
+The command starts Oracle 21c XE instance and Infinispan 14 (connected to the Oracle DB).
 
 ### Oracle
 
-Oracle creates required users on db initialization. The following script is run only once (when Oracle DB is created): 
+Oracle creates required users on db initialization. The following script is run only once (when Oracle DB is created):
 [SQL init scripts](./vshop-docker/oracle/scripts/setup)
 
 One of the created users `vshopcache` is used by Infinispan.\
-Read more about the [Initialization scripts](https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance#running-scripts-after-setup-and-on-startup) 
+Read more about
+the [Initialization scripts](https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance#running-scripts-after-setup-and-on-startup)
 
 Try to connect to the Oracle console:\
 https://localhost:5500/em \
@@ -37,7 +40,7 @@ user/password: `sys/sys`
 
 ### Infinispan
 
-Infinispan has configured JDBC connection (using `vshopcache` user) to persist the cache to the Oracle instance. 
+Infinispan has configured JDBC connection (using `vshopcache` user) to persist the cache to the Oracle instance.
 
 `countries` cache is set up at start (see [Cache config](./infinispan/server/conf/infinispan.xml))
 
@@ -51,6 +54,7 @@ container name: leave empty or type `CDB$ROOT`
 ### How can I connect to the Oracle DB
 
 You can download the [DBaver SQL IDE](https://dbeaver.io/) (I prefer via `scoop`) and use the following JDBC connection:
+
 ```
 jdbc:oracle:thin:@//localhost:1521/xepdb1
 ```
